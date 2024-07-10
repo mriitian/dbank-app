@@ -6,9 +6,9 @@ import Float "mo:base/Float";
 
 actor DBank{
   stable var currentValue: Float = 300;
-  currentValue := 300;
+  // currentValue := 300;
   stable var startTime = Time.now();
-  startTime := Time.now();
+  // startTime := Time.now();
   Debug.print(debug_show(startTime));
   public func topUp(amout: Float){
     currentValue += amout;
@@ -33,7 +33,7 @@ actor DBank{
   public func Compound(){
     let CurrentTime = Time.now();
     let TimeElapsedNS = CurrentTime - startTime;
-    let TimeElapsedS = TimeElapsedNS / 1000000000;
+    let TimeElapsedS = TimeElapsedNS / 1000000000000;
 
     currentValue := currentValue * (1.01 ** Float.fromInt(TimeElapsedS));
     startTime := CurrentTime;
